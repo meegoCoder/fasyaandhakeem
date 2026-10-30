@@ -80,7 +80,7 @@ window.INVITATION = {
     ],
     location: "",                                  // venue photo or map (shown in the Location panel)
     flowers: "",                                   // old peony photo backdrop (off)
-    texture: "",                        // main background. "" = plain dark
+    texture: "assets/images/texture.jpeg",                        // main background. "" = plain dark
   },
 
   /* ---------- 6. Video ---------- */

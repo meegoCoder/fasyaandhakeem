@@ -383,12 +383,21 @@
   var cover = $("cover");
   root.classList.add("locked");
   $("open-btn").focus({ preventScroll: true });
+  function startFlowers() {
+    var els = document.querySelectorAll(".fc"); if (!els.length) return;
+    if (!("IntersectionObserver" in window) || reduce) { Array.prototype.forEach.call(els, function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  }
   function openCover(withMusic) {
     if (withMusic && CFG.music.autoplayOnOpen !== false && musicBtn) { Music.start(); ui(); }
     root.classList.remove("locked");
     cover.classList.add("is-open");
     setTimeout(function () { cover.hidden = true; }, reduce ? 0 : 1700);
     window.scrollTo(0, 0);
+    setTimeout(startFlowers, reduce ? 0 : 700);
   }
   $("open-btn").addEventListener("click", function () { openCover(true); });
   if ($("open-quiet")) $("open-quiet").addEventListener("click", function () { openCover(false); });
