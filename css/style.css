@@ -435,9 +435,9 @@ body::before { background: var(--texture, none) center / cover no-repeat, var(--
 
 /* ---------- Two arch photos side by side, verse in the middle ---------- */
 .verse-row { display: grid; grid-template-columns: 1fr 1.08fr 1fr; gap: 10px; align-items: center; width: calc(100% + 16px); margin-inline: -8px; }
-.verse-row .frame.photo { max-width: none; aspect-ratio: 3 / 5; padding: 4px; border-radius: 999px 999px 0 0; }
-.verse-row .frame.photo .ph { border-radius: 999px 999px 0 0; }
-.verse-row .frame.photo::after { inset: 4px; border-radius: 999px 999px 0 0; font-size: 0.5rem; letter-spacing: 0.16em; }
+.verse-row .frame.photo { max-width: none; aspect-ratio: 3 / 5; padding: 4px; }
+.verse-row .frame.photo::after { inset: 4px; font-size: 0.5rem; letter-spacing: 0.16em; }
+
 .verse-row .verse { align-items: center; text-align: center; gap: 8px; padding-inline: 2px; }
 .verse-row .verse .ar { font-size: clamp(1.25rem, 5.6vw, 1.6rem); line-height: 1.75; }
 .verse-row .verse .ms { font-size: 0.56rem; letter-spacing: 0.14em; line-height: 1.7; }
