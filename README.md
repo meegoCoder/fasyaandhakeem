@@ -1,4 +1,4 @@
-# Digital Invitation: Ayra & Haq Nikah
+# Digital Invitation:
 
 A black-and-gold digital invitation card that behaves like a web app.
 
