@@ -70,9 +70,9 @@ window.INVITATION = {
      Empty "" = blank frame (placeholder). */
   images: {
     placeholder: "assets/images/placeholder.svg",
-    portrait: "",                                  // arch-shaped couple photo
-    photo1: "",                                    // photo above the verse, e.g. "assets/images/photo1.jpg"
-    photo2: "",                                    // photo below the verse
+    portrait: "assets/images/couple.jpg",                                  // arch-shaped couple photo
+    photo1: "assets/images/fasya half.jpeg",                                    // photo above the verse, e.g. "assets/images/photo1.jpg"
+    photo2: "assets/images/hakeem half.jpeg",                                    // photo below the verse
     gallery: [                                     // add or remove rows as needed
       { src: "", alt: "Gallery photo 1", label: "Photo 1" },
      //{ src: "", alt: "Gallery photo 2", label: "Photo 2" },

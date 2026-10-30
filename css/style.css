@@ -431,3 +431,14 @@ body::before { background: var(--texture, none) center / cover no-repeat, var(--
 @media (prefers-reduced-motion: reduce) { .fc, .fc.in { opacity: 1; transform: rotate(var(--r)); animation: none; } }
 #utama { padding-top: clamp(100px, 28vw, 128px); }
 .foot { padding-bottom: 110px; }
+
+
+/* ---------- Two arch photos side by side, verse in the middle ---------- */
+.verse-row { display: grid; grid-template-columns: 1fr 1.08fr 1fr; gap: 10px; align-items: center; width: calc(100% + 16px); margin-inline: -8px; }
+.verse-row .frame.photo { max-width: none; aspect-ratio: 3 / 5; padding: 4px; border-radius: 999px 999px 0 0; }
+.verse-row .frame.photo .ph { border-radius: 999px 999px 0 0; }
+.verse-row .frame.photo::after { inset: 4px; border-radius: 999px 999px 0 0; font-size: 0.5rem; letter-spacing: 0.16em; }
+.verse-row .verse { align-items: center; text-align: center; gap: 8px; padding-inline: 2px; }
+.verse-row .verse .ar { font-size: clamp(1.25rem, 5.6vw, 1.6rem); line-height: 1.75; }
+.verse-row .verse .ms { font-size: 0.56rem; letter-spacing: 0.14em; line-height: 1.7; }
+.verse-row .verse .ref { font-size: 0.78rem; line-height: 1.35; }
