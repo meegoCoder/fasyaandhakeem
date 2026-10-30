@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ayra & Haq Nikah Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500&family=Pinyon+Script&family=Amiri:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<!--
+  This file is structure only. Text comes from js/config.js
+  through the data-text, data-img and data-if attributes. Do not write text here.
+-->
+
+<!-- ================= COVER ================= -->
+<div class="cover" id="cover" role="dialog" aria-label="Invitation">
+  <div class="door door-l" aria-hidden="true"></div>
+  <div class="door door-r" aria-hidden="true"></div>
+  <button class="seal" id="open-btn" type="button">
+    <span class="seal-names"><span data-text="couple.bride"></span><span data-text="couple.groom"></span></span>
+    <span class="seal-label" data-text="text.cover.openButton"></span>
+  </button>
+</div>
+
+<!-- ================= APP ================= -->
+<div class="app" id="app">
+  <main class="card">
+
+    <!-- Invitation -->
+    <section class="sec" id="utama" aria-label="Invitation">
+      <p class="bismillah reveal" lang="ar" dir="rtl" data-text="text.bismillah"></p>
+      
+      <h1 class="lead-title gold reveal" data-text="text.intro.title"></h1>
+      <p class="lead-sub reveal" data-text="text.intro.subtitle"></p>
+      <div class="orn reveal" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+
+      <div class="host reveal">
+        <span class="eyebrow" data-text="text.intro.hostLabel"></span>
+        <span class="name todo" data-text="text.intro.hostNames"></span>
+      </div>
+
+      <div class="orn reveal" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+
+      <div class="couple reveal">
+        <span class="eyebrow" style="margin-bottom:6px" data-text="text.intro.ceremonyLabel"></span>
+        <span class="nm gold" data-text="couple.bride"></span>
+        <span class="script gold" data-text="couple.connector"></span>
+        <span class="eyebrow couple-note" data-text="text.intro.coupleNote"></span>
+        <span class="nm gold" data-text="couple.groom"></span>
+      </div>
+
+      <div class="daterow reveal">
+        <div class="side" data-text="dateParts.dayName"></div>
+        <div class="mid"><b data-text="dateParts.day"></b><span data-text="dateParts.monthYear"></span></div>
+        <div class="side" id="venue-lines"></div>
+      </div>
+      <p class="honour reveal" data-text="event.timeText" data-if="event.timeText"></p>
+
+      <div class="orn reveal" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+      <p class="honour reveal" data-text="text.intro.honour"></p>
+
+      <div class="frame arch reveal" data-label="Place couple photo here"><img class="ph" data-img="images.portrait" data-bind-attrs="alt:text.intro.ceremonyLabel" alt=""></div>
+
+      <p class="salam reveal" data-text="text.intro.salam"></p>
+      <p class="invite reveal" data-text="text.intro.invite"></p>
+
+      <div class="frame photo reveal" data-label="Photo 1"><img class="ph" data-img="images.photo1" alt=""></div>
+
+      <div class="verse reveal">
+        <p class="ar" lang="ar" dir="rtl" data-text="text.intro.verseArabic"></p>
+        <p class="ms" data-text="text.intro.verseMalay"></p>
+        <p class="ref" data-text="text.intro.verseRef"></p>
+      </div>
+
+      <div class="frame photo reveal" data-label="Photo 2"><img class="ph" data-img="images.photo2" alt=""></div>
+
+      <div class="vid reveal" id="video-block" data-if="features.video">
+        <span class="eyebrow" data-text="text.video.eyebrow"></span>
+        <div class="frame wide" id="video-slot"></div>
+      </div>
+    </section>
+
+
+    <!-- RSVP -->
+    <section class="sec" id="rsvp" aria-labelledby="rsvp-title">
+      <span class="eyebrow reveal" data-text="text.rsvp.eyebrow"></span>
+      <h2 class="sec-title gold reveal" id="rsvp-title" data-text="text.rsvp.title"></h2>
+      <p class="honour reveal" data-text="text.rsvp.intro"></p>
+
+      <form id="rsvp-form" class="reveal" novalidate>
+        <div class="field">
+          <label class="eyebrow" for="name" data-text="text.rsvp.nameLabel"></label>
+          <input id="name" name="name" type="text" autocomplete="name" data-bind-attrs="placeholder:text.rsvp.namePlaceholder" required>
+        </div>
+        <div class="field" role="radiogroup" aria-labelledby="attend-label">
+          <span class="eyebrow" id="attend-label" data-text="text.rsvp.attendLabel"></span>
+          <div class="seg-wrap">
+            <label class="seg"><input type="radio" name="attend" value="hadir" checked><span data-text="text.rsvp.attendYes"></span></label>
+            <label class="seg"><input type="radio" name="attend" value="tidak"><span data-text="text.rsvp.attendNo"></span></label>
+          </div>
+        </div>
+        <div class="field" id="guests-field">
+          <span class="eyebrow" id="guests-label" data-text="text.rsvp.guestsLabel"></span>
+          <div class="stepper" role="group" aria-labelledby="guests-label">
+            <button type="button" id="g-minus" aria-label="-">&minus;</button>
+            <output id="g-val" aria-live="polite">1</output>
+            <button type="button" id="g-plus" aria-label="+">+</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="eyebrow" for="note" data-text="text.rsvp.noteLabel"></label>
+          <textarea id="note" name="note" data-bind-attrs="placeholder:text.rsvp.notePlaceholder"></textarea>
+        </div>
+        <p class="error" id="form-error" role="alert"></p>
+        <button class="btn" type="submit" data-text="text.rsvp.submit"></button>
+      </form>
+
+    </section>
+
+
+    <section class="sec guestbook" id="guestbook" aria-labelledby="guestbook-title">
+      <h2 class="guestbook-title gold" id="guestbook-title" data-text="text.rsvp.guestbookTitle"></h2>
+      <div class="guest-wishes" id="guest-wishes" aria-live="polite"></div>
+      <div class="guestbook-orn" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+      <section class="attendance" aria-labelledby="attendance-title">
+        <h2 class="attendance-title gold" id="attendance-title" data-text="text.rsvp.attendanceTitle"></h2>
+        <div class="attendance-counts">
+          <div><b id="attendance-yes">0</b><span data-text="text.rsvp.attendanceYes"></span></div>
+          <div><b id="attendance-no">0</b><span data-text="text.rsvp.attendanceNo"></span></div>
+        </div>
+      </section>
+    </section>
+
+
+    <footer class="foot">
+      <p class="wass" data-text="text.footer.wassalam"></p>
+      <p class="sign script gold" data-text="text.footer.signature"></p>
+      <p class="print" data-text="text.footer.print"></p>
+    </footer>
+  </main>
+</div>
+
+<!-- ================= PANELS (slide up from the navigation bar) ================= -->
+<div class="sheet-backdrop" id="sheet-backdrop" aria-hidden="true"></div>
+
+<section class="sheet-panel calendar-panel" id="sheet-kalendar" role="dialog" aria-modal="true" aria-labelledby="kal-title" aria-hidden="true">
+  <button class="sheet-close" type="button" data-close data-bind-attrs="aria-label:text.common.close">&times;</button>
+  <header class="sheet-head">
+    <span class="eyebrow" data-text="text.calendar.eyebrow"></span>
+    <h2 class="sheet-title gold" id="kal-title" data-text="text.calendar.title"></h2>
+  </header>
+  <div class="cal">
+    <p class="cal-head gold" data-text="text.calendar.monthTitle"></p>
+    <div class="cal-grid" id="cal-grid" role="grid"></div>
+    <p class="cal-note" data-text="text.calendar.note"></p>
+  </div>
+  <div class="count" id="countdown" data-if="features.countdown">
+    <span class="eyebrow" data-text="text.calendar.countdownLabel"></span>
+    <div class="count-row" id="count-row">
+      <div class="count-cell"><b id="c-d">0</b><span data-text="text.calendar.days"></span></div>
+      <div class="count-cell"><b id="c-h">00</b><span data-text="text.calendar.hours"></span></div>
+      <div class="count-cell"><b id="c-m">00</b><span data-text="text.calendar.minutes"></span></div>
+      <div class="count-cell"><b id="c-s">00</b><span data-text="text.calendar.seconds"></span></div>
+    </div>
+    <p class="done" id="count-done" hidden></p>
+  </div>
+  <div class="row-btns">
+    <a class="btn" id="btn-cal" href="#" target="_blank" rel="noopener" data-text="text.calendar.saveButton"></a>
+  </div>
+</section>
+
+<section class="sheet-panel" id="sheet-lokasi" role="dialog" aria-modal="true" aria-labelledby="lok-title" aria-hidden="true">
+  <button class="sheet-close" type="button" data-close data-bind-attrs="aria-label:text.common.close">&times;</button>
+  <header class="sheet-head">
+    <span class="eyebrow" data-text="text.location.eyebrow"></span>
+    <h2 class="sheet-title" id="lok-title" data-text="event.venue"></h2>
+    <p class="sheet-sub todo" data-text="event.address" data-if="event.address"></p>
+  </header>
+  <div class="frame wide" data-label="" data-if="images.location"><img class="ph" data-img="images.location" data-bind-attrs="alt:event.venue" alt=""></div>
+  <div class="map-options">
+    <a class="map-opt" id="btn-gmaps" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3.5a8.5 8.5 0 0 0-8.5 8.5c0 6.4 8.5 14.5 8.5 14.5S32.5 18.4 32.5 12A8.5 8.5 0 0 0 24 3.5z"/><circle cx="24" cy="12" r="3"/><path d="M8 32l10-3 12 3 10-3v13l-10 3-12-3-10 3z"/><path d="M18 29v13M30 32v13"/></svg>
+      <span data-text="text.location.googleMaps"></span>
+    </a>
+    <a class="map-opt" id="btn-waze" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-9 0-16 6.6-16 15 0 4 1.6 7.5 4.2 10.2L10 38.5l7-2.4c2 .9 4.2 1.4 7 1.4 9 0 16-6.6 16-15.5S33 6 24 6z"/><circle cx="17.5" cy="42" r="3"/><circle cx="31.5" cy="42" r="3"/><path d="M18 25c2.2 3.4 9.8 3.4 12 0"/><circle cx="19" cy="18.5" r="1.3" fill="currentColor"/><circle cx="29" cy="18.5" r="1.3" fill="currentColor"/></svg>
+      <span data-text="text.location.waze"></span>
+    </a>
+  </div>
+</section>
+
+<section class="sheet-panel" id="sheet-hubungi" role="dialog" aria-modal="true" aria-labelledby="hub-title" aria-hidden="true">
+  <button class="sheet-close" type="button" data-close data-bind-attrs="aria-label:text.common.close">&times;</button>
+  <header class="sheet-head">
+    <span class="eyebrow" data-text="text.contact.eyebrow"></span>
+    <h2 class="sheet-title" id="hub-title" data-text="text.contact.title"></h2>
+    <p class="sheet-sub" data-text="text.contact.intro"></p>
+  </header>
+  <div class="contact-list" id="contacts"></div>
+</section>
+
+<nav class="tabbar" aria-label="Navigation">
+  <div class="tabs" id="tabs">
+    <button class="tab" id="tab-music" type="button" aria-pressed="false">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>
+      <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span><span data-text="text.nav.music"></span>
+    </button>
+    <button class="tab" type="button" data-sheet="sheet-kalendar" aria-expanded="false" aria-controls="sheet-kalendar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M8 14h2M14 14h2M8 17h2"/></svg><span data-text="text.nav.calendar"></span>
+    </button>
+    <button class="tab" type="button" data-sheet="sheet-lokasi" aria-expanded="false" aria-controls="sheet-lokasi">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.8-5.8-6.8-11.2a6.8 6.8 0 0 1 13.6 0C18.8 15.2 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg><span data-text="text.nav.location"></span>
+    </button>
+    <button class="tab" type="button" data-sheet="sheet-hubungi" aria-expanded="false" aria-controls="sheet-hubungi">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><circle cx="8.6" cy="11" r="1.9"/><path d="M5.6 16c.6-1.6 1.7-2.3 3-2.3s2.4.7 3 2.3M14 10h4.5M14 13h3.5"/></svg><span data-text="text.nav.contact"></span>
+    </button>
+    <a class="tab" href="#rsvp" data-target="rsvp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5L12 4.5l8.5 6v8.5a1.2 1.2 0 0 1-1.2 1.2H4.7A1.2 1.2 0 0 1 3.5 19z"/><path d="M3.8 10.8L12 16.5l8.2-5.7M8.8 9.2l2 2 3.6-3.8"/></svg><span data-text="text.nav.rsvp"></span>
+    </a>
+  </div>
+</nav>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
