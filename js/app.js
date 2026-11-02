@@ -105,6 +105,34 @@
     });
   })();
 
+  /* ---------- Title: the 2nd word is set in script ---------- */
+  (function () {
+    var h = document.querySelector(".lead-title"); if (!h) return;
+    var w = h.textContent.trim().split(/\s+/); if (w.length < 3) return;
+    h.textContent = "";
+    w.forEach(function (x, i) {
+      if (i) h.appendChild(document.createTextNode(" "));
+      if (i === 1) { var s = document.createElement("span"); s.className = "lead-script"; s.textContent = x; h.appendChild(s); }
+      else h.appendChild(document.createTextNode(x));
+    });
+  })();
+
+  /* ---------- Arrival and ceremony timing ---------- */
+  (function () {
+    var list = $("tl-list"); if (!list) return;
+    var TM = (CFG.text && CFG.text.timing) || {};
+    (TM.items || []).forEach(function (it, i) {
+      var li = document.createElement("li"); li.className = "tl-item reveal";
+      var t = document.createElement("b"); t.textContent = fmt(it.time);
+      var l = document.createElement("span"); l.textContent = fmt(it.label);
+      li.appendChild(t); li.appendChild(l); list.appendChild(li);
+    });
+    var note = $("timing-note");
+    (TM.closing || []).forEach(function (p) {
+      var e = document.createElement("p"); e.className = "reveal"; e.textContent = fmt(p); note.appendChild(e);
+    });
+  })();
+
   /* ---------- Gallery ---------- */
   (function () {
     var wrap = $("gallery"); if (!wrap) return;
@@ -407,15 +435,23 @@
   $("open-btn").addEventListener("click", function () { openCover(true); });
   if ($("open-quiet")) $("open-quiet").addEventListener("click", function () { openCover(false); });
 
-  /* ---------- Reveal on scroll (below-the-fold content only) ---------- */
+  /* ---------- Reveal on scroll: fades in when entering, fades out when leaving ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
   if ("IntersectionObserver" in window && !reduce) {
     var rio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove("pre"); rio.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    revealEls.forEach(function (el) {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) { el.classList.add("pre"); rio.observe(el); }
-    });
+      var n = 0;
+      es.forEach(function (e) {
+        var el = e.target;
+        if (e.isIntersecting) {
+          el.style.transitionDelay = (n++ * 110) + "ms";
+          el.classList.remove("pre-up", "pre-down");
+        } else {
+          el.style.transitionDelay = "0ms";
+          el.classList.add(e.boundingClientRect.top < 0 ? "pre-up" : "pre-down");
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "-5% 0px -5% 0px" });
+    revealEls.forEach(function (el) { rio.observe(el); });
   }
 
   /* ---------- Flower band parallax ---------- */

@@ -88,6 +88,26 @@
     </section>
 
 
+    <!-- Arrival and ceremony timing -->
+    <section class="sec timing" id="timing" aria-labelledby="timing-title" data-if="text.timing.items">
+      <h2 class="timing-title reveal" id="timing-title" data-text="text.timing.title"></h2>
+      <div class="orn reveal" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+      <ol class="tl reveal" id="tl-list"></ol>
+    </section>
+
+
+    <!-- Dress code + closing message -->
+    <section class="sec dress" id="dress" aria-labelledby="dress-title" data-if="text.dress.value">
+      <h2 class="timing-title reveal" id="dress-title" data-text="text.dress.title"></h2>
+      <p class="dress-value reveal" data-text="text.dress.value"></p>
+    </section>
+
+    <section class="sec closing" id="closing" data-if="text.timing.closing">
+      <div class="orn reveal" aria-hidden="true"><i></i><svg viewBox="0 0 22 14"><path d="M11 0l3.2 7L11 14 7.8 7z"/><circle cx="2.5" cy="7" r="1.5"/><circle cx="19.5" cy="7" r="1.5"/></svg><i></i></div>
+      <div class="timing-note" id="timing-note"></div>
+    </section>
+
+
     <!-- RSVP -->
     <section class="sec" id="rsvp" aria-labelledby="rsvp-title">
       <span class="eyebrow reveal" data-text="text.rsvp.eyebrow"></span>

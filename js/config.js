@@ -98,7 +98,7 @@ window.INVITATION = {
   /* Empty = built-in ambient music. Or put a file in assets/music/ */
   music: {
     src: "Lana Del Rey - Salvatore (Piano Cover).mp3",                                       // e.g. "assets/music/song.mp3"
-    volume: 0.7,                                   // 0 to 1 (for your own file)
+    volume: 0.9,                                   // 0 to 1 (for your own file)
     autoplayOnOpen: true                           // start playing when "Open Invitation" is tapped
   },
 
@@ -169,15 +169,33 @@ window.INVITATION = {
       title: "An Intimate Affair",
       subtitle: "of love, family & forever",
       hostLabel: "Walimatulurus",
-      hostNames: "Mohd Azmee and NorAliza",
+      hostNames: "Mohd Azmee and Noraliza",
       ceremonyLabel: "Joyfully invite you to witness the solemnization of our beloved daughter,",
       coupleNote: "to the love of her life,",
-      honour: "Your presence will be a great honour to our families.",
+      honour: "",
       salam: "",
       invite: "",
       verseArabic: "وَخَلَقْنَاكُمْ أَزْوَاجًا",
-      verseMalay: "And We created you in pairs",
+      verseMalay: " ''And We created you in pairs'' ",
       verseRef: "Surah An-Naba’ · verse 8"
+    },
+
+      timing: {
+      title: "Ceremony Timing",
+      items: [
+        { time: "10:00 AM – 11:00 AM", label: "Guest Arrival & Registration" },
+        { time: "11:15 AM", label: "Solemnisation Ceremony Begins" }
+      ],
+      closing: [
+        "As we gather to witness the beginning of our forever, your presence would mean more than words can express.",
+        "Thank you for sharing in this cherished moment and making it all the more meaningful.",
+        "We look forward to celebrating this beautiful occasion with you. 🤍"
+      ]
+    },
+
+      dress: {
+      title: "Dress Code",
+      value: "Traditional Attire"
     },
 
     video: { eyebrow: "Our Story" },
@@ -219,7 +237,7 @@ window.INVITATION = {
       title: "RSVP",
       intro: "Please fill in this form to confirm your attendance",
       nameLabel: "Your name",
-      namePlaceholder: "e.g. Paklong & family",
+      namePlaceholder: "e.g. Aaric & partner",
       attendLabel: "Attendance",
       attendYes: "Yes, I'll be there",
       attendNo: "Sorry, I can't make it",
