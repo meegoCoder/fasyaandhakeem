@@ -251,9 +251,10 @@ window.INVITATION = {
       msgNote: "Wishes: {note}"
     },
 
-    footer: {
-      wassalam: "Custom your digital card with",
-      print: "Ameerul, 010-9605600"
-    }
+    //footer: {
+      //wassalam: "Custom your digital card with",
+      //print: "Ameerul, 010-9605600"
+    //}
+
   }
 };

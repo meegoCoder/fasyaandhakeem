@@ -391,13 +391,18 @@
     }, { threshold: 0.15 });
     Array.prototype.forEach.call(els, function (e) { io.observe(e); });
   }
+  var opening = false;
   function openCover(withMusic) {
     if (withMusic && CFG.music.autoplayOnOpen !== false && musicBtn) { Music.start(); ui(); }
     root.classList.remove("locked");
-    cover.classList.add("is-open");
-    setTimeout(function () { cover.hidden = true; }, reduce ? 0 : 1700);
+    if (opening) return; opening = true;
+    /* 1) the seal peels off like a sticker, 2) the doors open like an envelope */
+    var PEEL = reduce ? 0 : 1150;
+    if (!reduce) cover.classList.add("is-peeling");
+    setTimeout(function () { cover.classList.add("is-open"); }, PEEL);
+    setTimeout(function () { cover.hidden = true; }, PEEL + (reduce ? 0 : 1700));
     window.scrollTo(0, 0);
-    setTimeout(startFlowers, reduce ? 0 : 700);
+    setTimeout(startFlowers, PEEL + (reduce ? 0 : 700));
   }
   $("open-btn").addEventListener("click", function () { openCover(true); });
   if ($("open-quiet")) $("open-quiet").addEventListener("click", function () { openCover(false); });
