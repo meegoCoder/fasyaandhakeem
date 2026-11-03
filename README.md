@@ -1,4 +1,4 @@
-# Digital Invitation: Fasya & Haq Nikah
+# Digital Invitation: Fasya & Hakeem Nikah
 
 A black-and-gold digital invitation card that behaves like a web app.
 
