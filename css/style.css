@@ -510,3 +510,11 @@ html, body { overflow-x: clip; }
 .reveal.pre-up { opacity: 0; transform: translateY(-18px); }
 .reveal.pre-down, .reveal.pre-up { transition-duration: 0.55s; }
 @media (prefers-reduced-motion: reduce) { .reveal { transition: none; } }
+
+
+/* Messages & Wishes: fixed-height scroll box, oldest at the top, newest at the bottom */
+.guest-wishes { max-height: min(440px, 62vh); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--gold-lo) transparent; padding-inline: 6px; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%); }
+.guest-wishes::-webkit-scrollbar { width: 4px; }
+.guest-wishes::-webkit-scrollbar-thumb { background: var(--gold-lo); border-radius: 4px; }
+
+.host .name { white-space: pre-line; }

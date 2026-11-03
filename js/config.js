@@ -105,9 +105,10 @@ window.INVITATION = {
   /* ---------- 8. Contacts ---------- */
   /* phone: country code + number, without +, spaces or dashes. Example "60123456789" */
   contacts: [
+    { role: "", name: "Shahrul", phone: "01115099621" },
     { role: "", name: "Liza", phone: "0193847231" },
-    { role: "", name: "Azmee", phone: "0182424775" },
-    { role: "", name: "Shahrul", phone: "01115099621" }
+    { role: "", name: "Azmee", phone: "0182424775" }
+    
   ],
 
   /* ---------- 9. RSVP ---------- */
@@ -168,8 +169,8 @@ window.INVITATION = {
     intro: {
       title: "An Intimate Affair",
       subtitle: "of love, family & forever",
-      hostLabel: "Walimatulurus",
-      hostNames: "Mohd Azmee and Noraliza",
+      hostLabel: "With the blessings of",
+      hostNames: "Mohd Azmee & Noraliza\nHj Zainal & Hjh Norma",
       ceremonyLabel: "Joyfully invite you to witness the solemnization of our beloved daughter,",
       coupleNote: "to the love of her life,",
       honour: "",

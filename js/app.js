@@ -698,17 +698,29 @@
     function loadWishes() {
       return dbRequest("rpc/rsvp_recent_wishes", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
     }
+    /* Oldest wish at the top, newest at the bottom (scroll box). If the database
+       returns newest first and has no created_at, set this to true. */
+    var WISHES_NEWEST_FIRST = false;
+    var wishesShown = false;
     function renderWishes(wishes) {
+      var nearBottom = wishesEl.scrollHeight - wishesEl.scrollTop - wishesEl.clientHeight < 48;
+      var keepTop = wishesEl.scrollTop;
       wishesEl.textContent = "";
       if (!wishes || !wishes.length) {
         var empty = document.createElement("p"); empty.className = "guestbook-empty"; empty.textContent = T("rsvp.guestbookEmpty"); wishesEl.appendChild(empty); return;
       }
-      wishes.forEach(function (entry) {
+      var list = wishes.slice();
+      if (list[0] && list[0].created_at) list.sort(function (a, b) { return new Date(a.created_at) - new Date(b.created_at); });
+      else if (WISHES_NEWEST_FIRST) list.reverse();
+      list.forEach(function (entry) {
         var article = document.createElement("article"); article.className = "guest-entry";
         var wish = document.createElement("p"); wish.className = "guest-wish"; wish.textContent = "\u201c" + entry.wish + "\u201d";
         var name = document.createElement("p"); name.className = "guest-name"; name.textContent = entry.guest_name;
         article.appendChild(wish); article.appendChild(name); wishesEl.appendChild(article);
       });
+      if (!wishesShown || nearBottom) wishesEl.scrollTop = wishesEl.scrollHeight;
+      else wishesEl.scrollTop = keepTop;
+      wishesShown = true;
     }
     async function refreshGuestbook() {
       if (!dbEnabled) {
@@ -732,6 +744,7 @@
       try {
         if (dbEnabled) await saveRsvp(name, attending, note);
         else { presentTotal += attending ? guests : 0; absentTotal += attending ? 0 : 1; }
+        wishesShown = false;
         await refreshGuestbook();
         form.reset(); guests = 1; renderGuests(); $("guests-field").hidden = false;
         $("guestbook").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
