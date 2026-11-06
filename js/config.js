@@ -21,7 +21,7 @@ window.INVITATION = {
   couple: {
     bride: "Fasya",
     groom: "Hakeem",
-    connector: "&",          // word between the two names
+    connector: " & ",          // word between the two names
     initials: ["F","H"],      // monogram letters on the opening screen
     //monogramAmp: "&"
   },
@@ -184,8 +184,9 @@ window.INVITATION = {
       timing: {
       title: "Ceremony Timing",
       items: [
-        { time: "10:00 AM – 11:00 AM", label: "Guest Arrival & Registration" },
-        { time: "11:15 AM", label: "Solemnisation Ceremony Begins" }
+        { time: "10:00 AM – 11:00 AM", label: "Guest Arrival" },
+        { time: "11:15 AM", label: "Solemnization Ceremony Begins" },
+        { time: "12:00 PM", label: "Lunch" }
       ],
       closing: [
         "As we gather to witness the beginning of our forever, your presence would mean more than words can express.",
@@ -196,7 +197,8 @@ window.INVITATION = {
 
       dress: {
       title: "Dress Code",
-      value: "Traditional Attire"
+      value:
+        "Traditional/Batik Attire"
     },
 
     video: { eyebrow: "Our Story" },
