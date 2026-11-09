@@ -121,7 +121,7 @@ a { color: inherit; }
 .lead-title { font-size: clamp(1.25rem, 5vw, 1.6rem); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; text-wrap: balance; }
 .lead-sub { font-style: italic; color: var(--muted); font-size: 1.1rem; }
 .host { display: flex; flex-direction: column; gap: 2px; }
-.host .name { font-size: clamp(1.4rem, 6vw, 1.9rem); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.host .name { font-size: clamp(1.4rem, 6vw, 1.9rem); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; white-space: pre-line; }
 .couple { display: flex; flex-direction: column; align-items: center; gap: 0; }
 .couple .nm { font-size: clamp(2.4rem, 11vw, 3.4rem); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; line-height: 1.12; }
 .couple .script { font-size: clamp(2rem, 8vw, 2.6rem); }
