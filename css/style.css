@@ -520,3 +520,7 @@ html, body { overflow-x: clip; }
 
 /* RSVP intro: respect line breaks written as \n in config.js */
 #rsvp > .honour { white-space: pre-line; }
+/* RSVP note: gap above, bold deadline, lining numerals */
+.rsvp-note { margin-top: 1.2em; max-width: 34ch; }
+.rsvp-note strong { font-weight: 600; font-style: italic; }
+.rsvp-note, .rsvp-note strong { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }

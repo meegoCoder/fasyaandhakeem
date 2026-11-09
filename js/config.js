@@ -238,7 +238,9 @@ window.INVITATION = {
     rsvp: {
       //eyebrow: "Will You Join Us?",
       title: "RSVP",
-      intro: "Please fill in this form to confirm your attendance.\nKindly RSVP by 1 December 2026.",
+      intro: "Please fill in this form to confirm your attendance.",
+      kindly: "Kindly",
+      deadline: "RSVP by 1 December 2026.",
       nameLabel: "Your name",
       namePlaceholder: "e.g. Aaric & partner",
       attendLabel: "Attendance",
